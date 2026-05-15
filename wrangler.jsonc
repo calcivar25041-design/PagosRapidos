@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "pagosrapidos",
+  "compatibility_date": "2024-04-04",
+  "compatibility_flags": ["nodejs_compat"],
+  "pages_build_output_dir": "./dist",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "pagosrapidos",
+      "database_id": "aae08918-4246-4ce6-8314-93a972a05bee"
+    }
+  ]
+}

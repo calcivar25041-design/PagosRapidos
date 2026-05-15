@@ -1,0 +1,27 @@
+{
+  "name": "pagos-rapidos",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Sistema de Gestión de Caja y Pendientes - Pagos Rapidos Agencia Alban Borja",
+  "scripts": {
+    "dev": "vite",
+    "dev:sandbox": "wrangler pages dev dist --d1=pagosrapidos --local --ip 0.0.0.0 --port 3000",
+    "build": "vite build",
+    "preview": "wrangler pages dev dist --d1=pagosrapidos --local",
+    "deploy": "npm run build && wrangler pages deploy dist --project-name pagosrapidos",
+    "db:migrate:local": "wrangler d1 migrations apply pagosrapidos --local",
+    "db:migrate:prod": "wrangler d1 migrations apply pagosrapidos",
+    "db:seed": "wrangler d1 execute pagosrapidos --local --file=./seed.sql",
+    "db:reset": "rm -rf .wrangler/state/v3/d1 && npm run db:migrate:local && npm run db:seed"
+  },
+  "dependencies": {
+    "hono": "^4.0.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250521.0",
+    "@hono/vite-cloudflare-pages": "^0.4.2",
+    "typescript": "^5.0.0",
+    "vite": "^5.0.0",
+    "wrangler": "^3.48.0"
+  }
+}
